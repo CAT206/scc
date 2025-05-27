@@ -90,7 +90,11 @@ function generateGallery() {
     { src: 'images/gallery/p45.webp', alt: 'GI 45' },
     { src: 'images/gallery/p46.webp', alt: 'GI 46' },
     { src: 'images/gallery/p47.webp', alt: 'GI 47' },
-    { src: 'images/gallery/p48.webp', alt: 'GI 48' }
+    { src: 'images/gallery/p48.webp', alt: 'GI 48' },
+    { src: 'images/gallery/p49.webp', alt: 'GI 49' },
+    { src: 'images/gallery/p50.webp', alt: 'GI 50' },
+    { src: 'images/gallery/p51.webp', alt: 'GI 51' },
+    { src: 'images/gallery/p52.webp', alt: 'GI 52' }
   ];
 
   const gallerySection = document.querySelector('#gallery');
@@ -119,14 +123,30 @@ function generateGallery() {
     
     const isWideLeft = (i / 3) % 2 === 0;
     
+    // Safely get up to 3 images (may return fewer at the end)
+    const batch = [
+      galleryImages[i],
+      galleryImages[i + 1],
+      galleryImages[i + 2]
+    ].filter(img => img !== undefined); // Remove undefined entries
+
     if (isWideLeft) {
-      row.appendChild(createGalleryItem(galleryImages[i], 'wide', i));
-      const narrowContainer = createNarrowContainer([galleryImages[i+1], galleryImages[i+2]], i+1);
-      row.appendChild(narrowContainer);
+      if (batch[0]) row.appendChild(createGalleryItem(batch[0], 'wide', i));
+      if (batch.length > 1) {
+        const narrowContainer = createNarrowContainer(batch.slice(1), i + 1);
+        row.appendChild(narrowContainer);
+      }
     } else {
-      const narrowContainer = createNarrowContainer([galleryImages[i], galleryImages[i+1]], i);
-      row.appendChild(narrowContainer);
-      row.appendChild(createGalleryItem(galleryImages[i+2], 'wide', i+2));
+      if (batch.length > 2) {
+        const narrowContainer = createNarrowContainer(batch.slice(0, 2), i);
+        row.appendChild(narrowContainer);
+        row.appendChild(createGalleryItem(batch[2], 'wide', i + 2));
+      } else {
+        // Handle leftover images (1 or 2) in alternate layout
+        batch.forEach((img, idx) => {
+          row.appendChild(createGalleryItem(img, 'wide', i + idx));
+        });
+      }
     }
     
     gallerySection.appendChild(row);
