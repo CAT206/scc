@@ -1,0 +1,703 @@
+  /*Global variables */
+  :root {
+    --main-color: rgba(37, 150, 190, 0.9); 
+  }
+
+  /*General Styles */
+  body {
+    font-family:Helvetica;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 55px;
+  }
+
+  .brand{
+    color: whitesmoke;
+    font-family: Arial Narrow;
+    font-size: 20px;
+    font-weight: bold; 
+  }
+
+  /* Navigation Bar */
+  .navbar {
+    /*height: 60px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*background-color: #107acf; */
+    --main-color: rgba(37, 150, 190, 0.9); 
+    background: var(--main-color); 
+    background-size: cover; /* Ensures image covers the entire navbar */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: white; /* Ensure text is readable */
+    border-bottom: 0.1px white solid; /* Optional: Add a border for separation */
+  }
+  
+
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar .nav-links li {
+    margin-left: 1.5rem;
+  }
+  
+  .navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: Arial Narrow;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ddf40f;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    /* height: auto; */   /* Replace this line */
+    min-height: 50vh;  /* Add this line to make it taller */
+    padding: 4rem 2rem; /* Keep this for consistent spacing with other sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    overflow: hidden;
+  }
+  /* Ensure hero content stays on top */
+  .hero-content {
+      position: relative;
+      z-index: 1;
+      /*text-shadow: 2px 2px 0 #222222, 4px 4px 5px #999;;*/
+  }
+  .hero-content h1 {
+    color: whitesmoke;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 0 #222222, 4px 4px 5px #999;
+    padding: 1rem;
+    background-color: #d1620e;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 0rem;
+    padding: 0.5rem;
+    background-color: #107acf;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(57, 57, 120);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: rgb(96, 93, 93);
+  }
+  
+  /* Sections */
+  .section {
+    padding: 2rem 2rem;
+    text-align: left;
+  }
+
+    /* Alternate colors */
+  .section:nth-child(odd) {
+    background-color: rgb(255, 255, 255); /* Color 1 */
+  }
+  .section:nth-child(even) {
+    background-color: rgb(228, 228, 228); /* Color 2 */
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color:rgb(23, 70, 124);
+    text-align: center;
+  }
+  
+  .section p {
+    font-size: 1rem;
+    
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  
+   /* standard Section - Single Column Landscape Layout */
+ .standard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.standard-item,
+.standard-item-highRow {
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(32, 32, 32, 0.3);
+  overflow: hidden;
+  display: flex;
+
+  background-color: var(--background-color,#f6f6f6);
+  min-height: var(--min-height, 210px);
+}
+
+.standard-item-highRow {
+  --min-height: 300px; 
+  --background-color: rgb(212, 231, 237);
+}
+
+.standard-item-image,
+.standard-item-image-highRow {
+
+  min-width: 10px;
+  
+  overflow: hidden; /* Ensures images don't overflow */
+  padding:  20px 20px 20px 20px; /* Add padding to the image container */
+  text-align: center;
+
+  height: var(--height, 170px); /* Fixed height for image container */
+
+  flex:  var(--flex,0 0 20%);
+
+}
+
+.standard-item-image-highRow {
+  background-color: rgb(212, 231, 237);
+  --height: 260px; /* Set a fixed minimum height */
+  --flex:  0 0 25%;
+}
+
+.standard-item-image img,
+.standard-item-image-highRow img {
+  width: auto;
+  height: 100%;
+  object-fit: cover; /* Crop image to fit container */
+  object-position: center; /* Center the cropped area */
+}
+
+/* Content styling */
+.standard-item-content, 
+.standard-item-content-highRow {
+  flex: 1;
+  padding: 0 30px 0 10px;
+  display: flex;
+  flex-direction: column;
+  }
+
+.standard-item-content h3,
+.standard-item-content-highRow h3  {
+    text-align: left; 
+    margin-left: 0;   
+    
+    --font-size: 1.4rem;
+    font-size: var(--font-size);
+   
+    --color:#474747;
+    color:var(--color);
+  }
+
+  .standard-item-content-highRow h3 {
+    --font-size:1.4rem;
+    --color:rgb(1, 67, 76);
+    }
+
+  .standard-item-content p,
+  .standard-item-content-highRow p {
+    /*text-align: justify;   set by .content class */ 
+    
+    margin-left: 0;   /* Remove any potential margins */
+    
+    --font-size: 0.9rem;
+    font-size: var(--font-size);
+    
+    --color:#4e4e4e;
+    color: var(--color);
+  }
+
+  .standard-item-content-highRow p {
+    --font-size: 1rem;
+    --color:rgb(16, 48, 45);
+  }
+
+/*
+  .standard-item i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f4c10f;
+  }
+
+  .standard-item h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color:rgb(59, 58, 58);
+  }
+  
+  .standard-item p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+*/
+  
+
+  .standard-link {
+    color: #107acf;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto; /* Pushes link to bottom */
+    align-self: flex-start; /* Aligns link to left */
+  }
+
+  .standard-link:hover {
+    text-decoration: underline;
+  }
+
+  /* List styles - not used */
+  
+  .item-list {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+    margin: 1rem auto; /* This ensures consistent margins */
+    max-width: 800px; /* Match the paragraph width */
+  }
+
+  .item-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem; /* Additional padding for better indentation */
+  }
+*
+
+
+  /* Contact Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #f4c10f;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #e0b10e;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--main-color);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .social-links {
+    margin-top: 1rem;
+  }
+  
+  .social-links a {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .social-links a:hover {
+    color: #f4c10f;
+  }
+  
+ p.pic-note {
+  font-size: 1rem;        /* Point units */
+  color: rgb(25, 35, 80); /* RGB values */
+  font-family: 'Arial Narrow', monospace;
+  text-align: center;
+}
+
+/* Flash messages container */
+.flash-messages {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Flash box base style */
+.flash-box {
+  position: relative;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 10px; /* Space between boxes */
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #333 1px 1px 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: flyIn 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Individual box styles */
+.box-1 {
+  background: rgba(238, 82, 4, 0.8);
+  animation-delay: 1s;
+  width: 180px;
+  height: auto;  
+}
+
+.box-2 {
+  background: rgba(238, 82, 4, 0.8);
+  animation-delay: 2s;
+  width: 180px;
+  height: auto; 
+}
+
+/* separator bar under section title*/
+.sep-bar {
+    display:block; 
+    width:15%; 
+    margin:20px auto; /*"auto" centers the line, but display must be "block" instead of "inline block"*/
+    border: none;
+    border-top:4px solid var(--main-color);
+}
+
+/* Animation */
+@keyframes flyIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      color: white;
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  
+    html {
+      scroll-padding-top: 55px;
+    }
+
+    .navbar {
+      flex-wrap: wrap;
+      padding: 0.5rem;
+      position: sticky;
+      z-index: 1000; /* Ensure it appears above other content */
+    }
+  
+    /* Reset desktop styles for mobile */
+    .navbar .nav-links {
+      display: none; /* Start hidden */
+      flex-direction: column;
+      width: 100%;
+      /*background-color: #226572;*/
+      position: relative;
+      top: auto;
+      left: auto;
+      padding: 1rem 0;
+      margin: 0;
+      list-style: none; 
+    }
+  
+    /* This is the key selector that shows the menu */
+    .navbar .nav-links.active {
+      display: flex;
+    }
+  
+    .navbar .nav-links li {
+      margin: 0;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+  
+    .navbar .nav-links a {
+      display: block;
+      padding: 0.5rem;
+    }
+    
+    .standard-item, 
+    .standard-item-highRow {
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    .standard-item-image,
+    .standard-item-image-highRow {
+      flex: 0 0 auto; /* Let height be content-based */
+      height: 200px; /* Fixed height for images */
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0 0 0;
+    }
+
+    .standard-item-image img,
+    .standard-item-image-highRow img {
+      
+      width: auto;            /* Keep width auto to respect aspect ratio after height is set */
+      max-width: 100%;        /* Prevent image from overflowing its actual calculated width if it's larger than container */
+      height: 100%;           /* As you have it */
+      object-fit: contain;      /* Or 'contain' if you prefer to see the whole image */
+      margin: 0 auto;        /* Center the image */
+    }
+
+    .standard-item-content,
+    .standard-item-content-highRow {
+        flex: 0 1 auto; /* Allow content to shrink */
+        padding: 15px; /* Reduced padding */
+      }
+
+    /* Ensure text content doesn't create excess space */
+    .standard-item-content p,
+    .standard-item-content-highRow p {
+        margin-bottom: 0.5rem; /* Reduce paragraph spacing */
+    }
+
+    .hero {
+        height: 70vh; /* Slightly smaller height on mobile */
+    }
+    
+    .slide img {
+      width: 80%; /* Reduce width from 100% */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 70vh; /* Limit height */
+      object-fit: contain; /* Show whole image without cropping */
+      margin: 0 auto; /* Center horizontally */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Perfect centering */
+    }
+    
+    /* Ensure no empty space around images */
+    .slideshow-container {
+        height: 70vh;
+    }
+  }
+
+  /* Flexbox Container */
+
+.container {
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space between text and image */
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Section */
+.text {
+  flex: 1; /* Take up available space */
+  padding-right: 20px; /* Add some spacing between text and image */
+}
+
+/* Image Section */
+.image {
+  flex: 1; /* Take up available space */
+  text-align: center; /* Center the image */
+}
+
+.image img {
+  max-width: 70%; /* Make image responsive */
+  height: auto;
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+/* Heading Style */
+h1 {
+  color: #96af4c;
+}
+
+/* Paragraph Style */
+p {
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content p {
+  margin-top: 0.5em;    /* Reduce top margin */
+  margin-bottom: 1.5em;   
+  line-height: 1.5;     /* Improve readability */
+  
+  text-align: justify;  /* Optional: creates clean edges */
+  text-justify: inter-word;
+
+}
+
+/* slide show of pictures */
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+  margin: 0; /* Remove previous margin */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+  overflow: hidden; /* Add this to prevent any overflow */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers entire screen */
+    object-position: center;
+    max-height: none; /* Remove previous restriction */
+}
+
+/* Fade animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Gallery Section */
+
+/* Update these styles in your CSS file */
+.custom-gallery {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.custom-gallery h2{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: rgb(23, 70, 124);
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.gallery-row {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  /* Remove fixed height - now set by JS */
+}
+
+.wide {
+  flex: 2;
+  height: 100%; /* Take full height of parent */
+}
+
+.narrow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  overflow: hidden; /* Prevent any overflow */
+}
+
+.narrow-img {
+  width: 100%;
+  overflow: hidden; /* Hide any image overflow */
+}
+
+
+.narrow-img img,
+.wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.narrow-img img:hover,
+.wide img:hover {
+  filter: brightness(0.6); /* Makes image 60% bright (darker). Adjust value as needed (e.g., 0.5 for 50%) */
+}
