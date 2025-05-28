@@ -44,6 +44,7 @@
   
 
   .navbar .nav-links {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     list-style: none;
     display: flex;
     margin: 0;
